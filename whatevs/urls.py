@@ -16,7 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from events_manager import views
+
 urlpatterns = [
-    path('', include('events_manager.urls')),
-    path('admin/', admin.site.urls),
+    path('', include('django.contrib.auth.urls')),
+    path('', views.home, name='events_manager-home'),
+    path('events_manager/', views.events, name='events_manager-events_manager'),
+    path('new_event/', views.new_event, name='events_manager-new_event'),
+    path('new_activity/', views.new_activity, name='events_manager-new_activity'),
 ]
+
